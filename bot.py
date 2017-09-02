@@ -10,12 +10,6 @@ MAX_TRADE_BTC = 0.0005
 CHECK_DELAY = 5.0
 
 from config import API_KEY, API_SECRET
-
-API_KEY = '0D503841CA84E1790A1CF990A8C9846B'
-API_SECRET = '8f4db35fd1704ce638ddb95ecd34891a'
-
-
-
 from urllib.parse import urlencode
 
 
