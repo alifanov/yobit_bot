@@ -4,13 +4,13 @@ import time
 import hmac
 import hashlib
 
+from config import API_KEY, API_SECRET
+from urllib.parse import urlencode
+
 CHUNK = 50
 DEPTH_LIMIT = 20
 MAX_TRADE_BTC = 0.0005
 CHECK_DELAY = 5.0
-
-from config import API_KEY, API_SECRET
-from urllib.parse import urlencode
 
 
 class YobitAPI:
@@ -116,16 +116,16 @@ def check_pairs(yo):
                 next_ask_volume = depth[pair]['asks'][1][1]
 
                 if stat['mean_volume'] * 10 >= ask_volume and ask_volume < next_ask_volume:
-                    trade_volume = min(ask_volume, 1.0*MAX_TRADE_BTC/ask_price)
+                    trade_volume = min(ask_volume, 1.0 * MAX_TRADE_BTC / ask_price)
                     if trade_volume:
                         if '_btc' in pair:
-                            if ask_price*trade_volume <= MAX_TRADE_BTC:
+                            if ask_price * trade_volume <= MAX_TRADE_BTC:
                                 print('Open trade: ', pair, trade_volume, ask_price, next_ask_price)
                                 print('Pair: ', pair)
                                 print('Trade volume: ', trade_volume)
                                 print('Buy price: ', ask_price)
                                 print('Sell price: ', next_ask_price)
-                                print('Profit: ', (next_ask_price - ask_price)*trade_volume)
+                                print('Profit: ', (next_ask_price - ask_price) * trade_volume)
                                 print()
                                 yo.open_trade(pair, ask_price, next_ask_price, trade_volume)
 
