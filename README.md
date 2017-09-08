@@ -1,6 +1,6 @@
 # yobit_bot
 
-Bot for Yobit.next. Check buy trades and identified aggresive trading for finding opportunity for scalping.
+Bot for <a href='http://yobit.net'>Yobit.net</a>. Check buy trades and identified aggresive trading for finding opportunity for scalping.
 
 ## Usage
 
